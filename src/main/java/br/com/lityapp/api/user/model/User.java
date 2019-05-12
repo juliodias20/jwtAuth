@@ -7,14 +7,12 @@ import java.util.Date;
 
 @Data
 @Entity
-@Table(name = "tb_user")
+@Table(name = "tco_user")
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "user_id")
     private Integer id;
-
-    private Integer referralId;
 
     private String name;
 
@@ -25,12 +23,6 @@ public class User {
     private String telephone;
 
     private String password;
-
-    private String image;
-
-    private boolean autoPrintOrder;
-
-    private boolean deleted;
 
     @Temporal(TemporalType.TIMESTAMP)
     private Date dateAdded;
