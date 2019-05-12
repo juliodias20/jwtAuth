@@ -9,6 +9,7 @@ import java.util.Set;
 
 public class CurrentUser implements UserDetails {
     private final Integer id;
+    private final Integer companyId;
     private final String name;
     private final String cpf;
     private final String username;
@@ -18,14 +19,11 @@ public class CurrentUser implements UserDetails {
     private final boolean accountNonLocked;
     private final boolean credentialsNonExpired;
     private final boolean enabled;
-/*
-    public CurrentUser(User user) {
-        /*this(user.getId(), user.getName(), user.getCpf(), user.getEmail(), null, user.getImage());
-    }
-    */
 
-    public CurrentUser(Integer id,  String name, String cpf, String username, String password) {
+
+    public CurrentUser(Integer id, Integer companyId, String name, String cpf, String username, String password) {
         this.id = id;
+        this.companyId = companyId;
         this.name = name;
         this.cpf = cpf;
         this.username = username;
@@ -47,6 +45,10 @@ public class CurrentUser implements UserDetails {
 
     public String getCpf() {
         return cpf;
+    }
+
+    public Integer getCompanyId() {
+        return companyId;
     }
 
     @Override
@@ -82,5 +84,22 @@ public class CurrentUser implements UserDetails {
     @Override
     public boolean isEnabled() {
         return this.enabled;
+    }
+
+    @Override
+    public String toString() {
+        return "CurrentUser{" +
+                "id=" + id +
+                ", companyId=" + companyId +
+                ", name='" + name + '\'' +
+                ", cpf='" + cpf + '\'' +
+                ", username='" + username + '\'' +
+                ", password='" + password + '\'' +
+                ", authorities=" + authorities +
+                ", accountNonExpired=" + accountNonExpired +
+                ", accountNonLocked=" + accountNonLocked +
+                ", credentialsNonExpired=" + credentialsNonExpired +
+                ", enabled=" + enabled +
+                '}';
     }
 }

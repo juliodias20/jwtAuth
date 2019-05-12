@@ -46,11 +46,12 @@ public class JwtAuthorizationFilter extends OncePerRequestFilter {
         }
 
         Integer id = jwtTokenUtil.getIdFromToken(token);
+        Integer comapanyId = jwtTokenUtil.getCompanyIdFromToken(token);
         String name = jwtTokenUtil.getNameFromToken(token);
         String cpf = jwtTokenUtil.getCpfFromToken(token);
         String username = jwtTokenUtil.getUsernameFromToken(token);
 
-        CurrentUser currentUser = new CurrentUser(id, name, cpf, username, null);
+        CurrentUser currentUser = new CurrentUser(id, comapanyId, name, cpf, username, null);
         return new UsernamePasswordAuthenticationToken(currentUser, null, currentUser.getAuthorities());
     }
 

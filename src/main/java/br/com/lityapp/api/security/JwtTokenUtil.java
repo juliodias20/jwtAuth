@@ -16,6 +16,7 @@ public class JwtTokenUtil {
         Claims claims = Jwts.claims().setSubject(currentUser.getUsername());
         claims.put("id", currentUser.getId());
         claims.put("name", currentUser.getName());
+        claims.put("companyId", currentUser.getCompanyId());
         claims.put("cpf", currentUser.getCpf());
 
         return Jwts.builder()
@@ -28,11 +29,11 @@ public class JwtTokenUtil {
     public Integer getIdFromToken(String token) {
         return (Integer) this.getAllClaimsFromToken(token).get("id");
     }
-    /*
+
     public Integer getCompanyIdFromToken(String token) {
         return (Integer) this.getAllClaimsFromToken(token).get("companyId");
     }
-*/
+
     public String getNameFromToken(String token) {
         return (String) this.getAllClaimsFromToken(token).get("name");
     }

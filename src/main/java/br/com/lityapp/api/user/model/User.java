@@ -14,6 +14,8 @@ public class User {
     @Column(name = "user_id")
     private Integer id;
 
+    private Integer companyId;
+
     private String name;
 
     private String email;
